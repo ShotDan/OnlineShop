@@ -1,0 +1,36 @@
+﻿@model List<User>
+<div class="row">
+    @await Html.PartialAsync("AdminMenu")
+
+    <div class="col-10 text-center">
+        <h3>Список пользователей</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Логин</th>
+                    <th>Почта</th>
+                    <th>Роль</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Login</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].Role.Name</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="User" asp-action="GetUser" asp-route-id="@Model[i].Id" asp style="text-decoration: none">Подробнее</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a class="btn btn-outline-dark" asp-area="Admin" asp-controller="User" asp-action="AddUser">Добавить пользователя</a>
+    </div>
+</div>

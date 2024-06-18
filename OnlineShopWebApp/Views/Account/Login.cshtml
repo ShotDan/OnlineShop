@@ -1,0 +1,29 @@
+﻿@model UserLoginInfo
+<form method="post">
+    <div class="row">
+        <div class="col-md-5 card shadow-lg mx-auto">
+
+            <h3 style="text-align: center; margin-top: 20px;">Вход</h3>
+
+            <div class="form-group" style="margin:10px">
+                <input asp-for="Login" class="form-control" placeholder="Логин">
+                <span asp-validation-for="Login" style="color:red"></span>
+            </div>
+
+            <div class="form-group" style="margin:10px">
+                <input asp-for="Password" type="password" class="form-control" placeholder="Пароль">
+                <span asp-validation-for="Password" style="color:red"></span>
+            </div>
+
+            <div class="has-validation" style="color:red" asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-group form-check" style="margin:10px">
+                <input name="RememberMe" type="checkbox" class="form-check-input">
+                <label class="form-check-label">Запомнить меня?</label>
+            </div>
+
+            <button class="btn btn-dark" style="margin-top: 10px;" type="submit" asp-controller="Account" asp-action="Login">Войти</button>
+            <a asp-controller="Account" asp-action="Reg" style="margin-top: 10px; margin-bottom: 10px; text-align:center; color:black">Зарегистрироваться</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+﻿@model UserEditInfo
+
+<form method="post">
+    <h4>Редактирование пользователя</h4>
+    <br />
+    <div class="row">
+        <label class="col-sm-2 col-form-label">Логин пользователя:</label>
+        <div class="col-sm-8">
+            <input asp-for="Login" class="form-control" value="@Model.Login">
+            <span asp-validation-for="Login" style="color:red"></span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <label for="cost" class="col-sm-2 col-form-label">Почта*:</label>
+        <div class="col-sm-8">
+            <input asp-for="Email" class="form-control" value="@Model.Email">
+            <span asp-validation-for="Email" style="color:red"></span>
+        </div>
+    </div>
+    <br />
+    <div class="has-validation" style="color:red" asp-validation-summary="ModelOnly"></div>
+    <br />
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <button type="submit" class="btn btn-dark" asp-area="Admin" asp-controller="User" asp-action="EditUser">Сохранить</button>
+    <a class="btn btn-outline-dark" asp-area="Admin" asp-controller="User" asp-action="Users">Отмена</a>
+</form>

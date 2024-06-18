@@ -1,0 +1,25 @@
+﻿@model List<Role>
+
+<form method="post">
+    <h4>Смена роли пользователя</h4>
+    <br />
+
+    <select class="form-select-sm" name="role">
+        <option selected>@ViewData["userRole"]</option>
+
+        @foreach (var role in Model)
+        {
+            if (role.Name != @ViewData["userRole"])
+            {
+                <option value="@role.Name">@role.Name</option>
+            }
+        }
+
+    </select>
+
+    <br />
+    <br />
+    <br />
+    <button type="submit" class="btn btn-dark" asp-area="Admin" asp-controller="User" asp-action="ChangeAccess" asp-route-userId="@ViewData["userId"]">Сохранить</button>
+    <a class="btn btn-outline-dark" asp-area="Admin" asp-controller="User" asp-action="Users">Отмена</a>
+</form>

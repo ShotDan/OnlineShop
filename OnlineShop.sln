@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopWebApp", "OnlineShopWebApp\OnlineShopWebApp.csproj", "{02C9DC44-3F51-4E90-9D24-EBE6881DB0A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Db", "OnlineShop.Db\OnlineShop.Db.csproj", "{B979D6CB-39FA-498B-81AC-767CCB5FCCF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02C9DC44-3F51-4E90-9D24-EBE6881DB0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C9DC44-3F51-4E90-9D24-EBE6881DB0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C9DC44-3F51-4E90-9D24-EBE6881DB0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C9DC44-3F51-4E90-9D24-EBE6881DB0A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B979D6CB-39FA-498B-81AC-767CCB5FCCF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B979D6CB-39FA-498B-81AC-767CCB5FCCF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B979D6CB-39FA-498B-81AC-767CCB5FCCF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B979D6CB-39FA-498B-81AC-767CCB5FCCF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5CB97DA-B78E-48B3-93EC-4993F2E7DB1B}
+	EndGlobalSection
+EndGlobal

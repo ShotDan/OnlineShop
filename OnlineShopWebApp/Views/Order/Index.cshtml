@@ -1,0 +1,39 @@
+﻿@model UserDeliveryInfo
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-5 card shadow-lg mx-auto">
+            <div class="form-group" style="margin:10px">
+                <label>ФИО*</label>
+                <input asp-for="Name" class="form-control" placeholder="Иванов Иван Иванович">
+                <span asp-validation-for="Name" style="color:red"></span>
+            </div>
+
+            <div class="form-group" style="margin:10px">
+                <label>Email*</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="name@example.com">
+                <span asp-validation-for="Email" style="color:red"></span>
+            </div>
+
+            <div class="form-group" style="margin:10px">
+                <label>Телефон*</label>
+                <input asp-for="Phone" type="tel" class="form-control" placeholder="+7 (***) ***-****">
+                <span asp-validation-for="Phone" style="color:red"></span>
+            </div>
+
+            <div class="form-group" style="margin:10px">
+                <label>Адрес*</label>
+                <input asp-for="Address" type="text" class="form-control" placeholder="г. Москва">
+                <span asp-validation-for="Address" style="color:red"></span>
+            </div>
+
+            <div class="form-group" style="margin:10px">
+                <label>Комментарии к заказу</label>
+                <textarea asp-for="Comment" class="form-control" style="height: 140px;"></textarea>
+            </div>
+
+            <a class="btn btn-outline-dark" href="/home/index" style="margin-top: 10px;">Продолжить покупки</a>
+            <button class="btn btn-outline-success" type="submit" style="margin-top: 10px; margin-bottom: 10px;" asp-controller="Order" asp-action="Buy">Оформить заказ</button>
+        </div>
+    </div>
+</form>

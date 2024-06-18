@@ -1,0 +1,59 @@
+﻿@model List<Order>
+
+<div class="row">
+    @await Html.PartialAsync("AdminMenu")
+
+    <div class="col-10 text-center">
+        <h3>Список заказов</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Сумма</th>
+                    <th>Статус</th>
+                    <th>Пользователь</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].CartSum</td>
+
+                        @switch (Model[i].Status)
+                        {
+                            case OnlineShopWebApp.Enums.OrderStatus.Created:
+                                <td>Создан</td>
+                                break;
+                            case OnlineShopWebApp.Enums.OrderStatus.Processed:
+                                <td>Обработан</td>
+                                break;
+                            case OnlineShopWebApp.Enums.OrderStatus.OnTheWay:
+                                <td>В пути</td>
+                                break;
+                            case OnlineShopWebApp.Enums.OrderStatus.Delivered:
+                                <td>Доставлен</td>
+                                break;
+                            case OnlineShopWebApp.Enums.OrderStatus.Canceled:
+                                <td>Отменён</td>
+                                break;
+                        }
+                        <td>@Model[i].DeliveryInfo.Email</td>
+                        <td>@Model[i].Date</td>
+                        <td>@Model[i].Time</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="Order" asp-action="GetOrder" asp-route-id="@Model[i].Id" asp style="text-decoration: none">Подробнее</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model Order
+<form method="post">
+
+    <div class="row">
+        @await Html.PartialAsync("AdminMenu")
+
+        <div class="col-1">
+        </div>
+
+        <div class="col-7">
+            <h3>Заказ №@Model.Id</h3>
+            <table class="table border-top">
+                <tr>
+                    <th style=" border-bottom: none; color:gray">Дата и время оформления:</th>
+                    <td style="border-bottom: none;">@Model.Date в @Model.Time</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Адрес доставки:</th>
+                    <td style="border-bottom: none;">@Model.DeliveryInfo.Address</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Получатель:</th>
+                    <td style="border-bottom: none;">@Model.DeliveryInfo.Name</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Телефон:</th>
+                    <td style="border-bottom: none;">@Model.DeliveryInfo.Phone</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Email:</th>
+                    <td style="border-bottom: none;">@Model.DeliveryInfo.Email</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Комментарий:</th>
+                    <td style="border-bottom: none;">@Model.DeliveryInfo.Comment</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Сумма заказа:</th>
+                    <td style="border-bottom: none;">@Model.CartSum</td>
+                </tr>
+                <tr>
+                    <th style="border-bottom: none;color:gray">Статус заказа:</th>
+                    <td style="border-bottom: none;">
+                        <select class="form-select-sm" name="orderStatus">
+                            <option value="@OnlineShopWebApp.Enums.OrderStatus.Created">Создан</option>
+                            <option value="@OnlineShopWebApp.Enums.OrderStatus.Processed">Обработан</option>
+                            <option value="@OnlineShopWebApp.Enums.OrderStatus.OnTheWay">В пути</option>
+                            <option value="@OnlineShopWebApp.Enums.OrderStatus.Canceled">Отменён</option>
+                            <option value="@OnlineShopWebApp.Enums.OrderStatus.Delivered">Доставлен</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-outline-dark" type="submit" asp-area="Admin" asp-controller="Order" asp-action="EditOrderStatus" asp-route-id="@Model.Id">Изменить статус</button>
+        </div>
+    </div>
+</form>

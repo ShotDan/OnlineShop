@@ -1,0 +1,39 @@
+﻿@model List<Role>
+<div class="row">
+    @await Html.PartialAsync("AdminMenu")
+
+    <div class="col-10">
+        <h3 class="text-center">Список ролей</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Имя роли</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        <td style="vertical-align: middle;">@role.Name</td>
+                        <td class="col-4 text-end">
+                            <a class="btn btn-dark" asp-area="Admin" asp-controller="Role" asp-action="DelRole" asp-route-id="@role.Id">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+        @if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <a class="btn btn-outline-dark" asp-area="Admin" asp-controller="Role" asp-action="AddRoleIndex">Добавить роль</a>
+    </div>
+</div>

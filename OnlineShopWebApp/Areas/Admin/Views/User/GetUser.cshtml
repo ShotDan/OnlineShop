@@ -1,0 +1,41 @@
+﻿@model User
+
+<form method="post">
+
+    <div class="row">
+        @await Html.PartialAsync("AdminMenu")
+
+        <div class="col-1">
+        </div>
+
+        <div class="col-7">
+            <h3>Пользователь @Model.Login</h3>
+            <table class="table border-top">
+                <tr>
+                    <th style=" border-bottom: none; color:gray">Логин:</th>
+                    <td style="border-bottom: none;">@Model.Login</td>
+                </tr>
+
+                <tr>
+                    <th style=" border-bottom: none; color:gray">Почта:</th>
+                    <td style="border-bottom: none;">@Model.Email</td>
+                </tr>
+
+                <tr>
+                    <th style="border-bottom: none;color:gray">Роль:</th>
+                    <td style="border-bottom: none;">@Model.Role.Name</td>
+                </tr>
+            </table>
+
+            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Действия</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id">Смена пароля</a></li>
+                <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="EditUser" asp-route-id="@Model.Id">Редактирование данных</a></li>
+                <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="ChangeAccess" asp-route-id="@Model.Id">Права доступа</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="DeleteUser" asp-route-id="@Model.Id">Удалить пользователя</a></li>
+            </ul>
+            <button class="btn btn-outline-dark" asp-area="Admin" asp-controller="User" asp-action="Users" style="margin-left:20px">Отмена</button>
+        </div>
+    </div>
+</form>
